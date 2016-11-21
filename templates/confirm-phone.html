@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!--START POPUP CONFIRM PHONE-->
+<div ng-controller="ConfirmPhoneTemplateController as confirmPhone" class="popup-content-block">
+  <div class="popup-form">
+    <div class="popup-main without-footer">
+      <form name="registration" ng-submit="confirmPhone.sendPhone()" novalidate class="registration-form">
+        <div class="popup-confirm-message"><span>На ваш телефон будет отправлен код подтверждения, для восстановления пароля.</span></div>
+        <div class="form-input-holder">
+          <input type="tel" name="phone" angular-mask="+00(000)000-00-00" placeholder="Введите номер телефона" ng-model="confirmPhone.formData.phone" class="popup-input">
+          <div ng-if="confirmPhone.formErrors.phone" class="form-input-error-holder"><span class="form-input-error">{{confirmPhone.formErrors.phone}}</span></div>
+        </div><span ng-if="confirmPhone.formErrors.form" class="form-error">{{confirmPhone.formErrors.form}}</span>
+        <button class="btn mod-popup">ОТПРАВИТЬ</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!--END POPUP CONFIRM PHONE-->

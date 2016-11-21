@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<!--START POPUP-->
+<div ng-click="popup.closePopup($event)" class="popup-wrap">
+  <div ng-class="{'popup-fade-in': fadeIn , 'popup-fade-out': fadeOut }" class="popup-content mod-auth">
+    <div class="popup-header"><span ng-bind="popup.title"></span><span ng-click="bodyTest.togglePopup()" class="close-popup"></span></div>
+    <div ng-include="popup.currentTemplate" class="popup-include-holder"></div>
+  </div>
+</div>
+<!--END POPUP-->

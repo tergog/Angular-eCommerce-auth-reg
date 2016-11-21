@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--START POPUP CONFIRM-->
+<div ng-controller="ConfirmTemplateController as confirm" class="popup-content-block">
+  <div class="popup-form">
+    <div class="popup-main">
+      <div class="popup-confirm-user-data"><span class="popup-user-data">{{confirm.data.fullName}}</span><span class="popup-user-data">{{confirm.data.phone}}</span>
+        <div class="popup-pass-link-wrap"><a ng-click="popup.navigate('signup')" class="popup-pass-link">Изменить данные</a></div>
+      </div>
+      <div class="popup-divider"></div>
+      <div class="popup-confirm-message"><span>На ваш мобильный телефон отправлен код подтверждения, введите его ниже, чтобы закончить регистрацию.</span></div>
+      <form ng-submit="confirm.signupConfirm()" class="registration-form">
+        <div class="form-input-holder">
+          <input type="text" placeholder="Укажите код" ng-model="confirm.formData.confirmCode" class="popup-input">
+          <div ng-if="confirm.formErrors.confirmCode" class="form-input-error-holder"><span class="form-input-error">{{confirm.formErrors.confirmCode}}</span></div>
+        </div><span ng-if="confirm.formErrors.form" class="form-error">{{confirm.formErrors.form}}</span>
+        <button class="btn mod-popup">Подтвердить</button>
+      </form>
+    </div>
+    <div class="popup-footer"><span class="popup-footer-text">Не приходит смс?</span><a ng-click="confirm.resendConfirm()" class="popup-link">Отправить повторно</a></div>
+  </div>
+</div>
+<!--END POPUP CONFIRM-->

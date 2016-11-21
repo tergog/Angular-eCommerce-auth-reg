@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--START POPUP SIGNUP-->
+<div ng-controller="SignupTemplateController as signup" class="popup-content-block">
+  <div class="popup-form">
+    <div class="popup-main">
+      <div class="signup-switch-holder"><span class="popup-text">Вы:</span>
+        <!--START FILTER SWITCHER USER-->
+        <div class="filter-switcher">
+          <label class="filter-switcher-item">
+            <input type="radio" value="patient" ng-model="signup.formData.role" class="filter-switcher-radio"/><span class="filter-switcher-label">Пациент</span>
+          </label>
+          <label class="filter-switcher-item">
+            <input type="radio" value="clinic_admin" ng-model="signup.formData.role" class="filter-switcher-radio"/><span class="filter-switcher-label">Клиника</span>
+          </label>
+          <label class="filter-switcher-item">
+            <input type="radio" value="doctor" ng-model="signup.formData.role" class="filter-switcher-radio"/><span class="filter-switcher-label">Врач</span>
+          </label>
+        </div>
+        <!--END FILTER SWITCHER USER-->
+      </div>
+      <div ng-if="signup.formData.role == 'patient'">
+        <form name="registrationForm" ng-submit="signup.validate(registrationForm)" novalidate class="signup-form">
+          <div class="form-input-holder">
+            <input type="text" name="fullName" placeholder="Имя и фамилия" ng-model="signup.formData.fullName" class="popup-input">
+            <div ng-if="signup.formErrors.fullName" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.fullName}}</span></div>
+          </div>
+          <div class="form-input-holder">
+            <input type="password" name="password" placeholder="Пароль*" ng-model="signup.formData.password" class="popup-input">
+            <div ng-if="signup.formErrors.password" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.password}}</span></div>
+          </div>
+          <div class="form-input-holder">
+            <input type="password" name="passwordRepeat" placeholder="Повторите пароль*" ng-model="signup.formData.passwordRepeat" class="popup-input">
+            <div ng-if="signup.formErrors.passwordRepeat" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.passwordRepeat}}</span></div>
+          </div>
+          <div class="form-input-holder">
+            <input type="text" name="phone" angular-mask="+00(000)000-00-00" placeholder="Телефон*" ng-model="signup.formData.phone" class="popup-input">
+            <div ng-if="signup.formErrors.phone" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.phone}}</span></div>
+          </div>
+          <div class="form-input-holder">
+            <input type="email" name="email" placeholder="E-mail" ng-model="signup.formData.email" class="popup-input">
+            <div ng-if="signup.formErrors.email" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.email}}</span></div>
+          </div><span ng-if="signup.formErrors.form" class="form-error">{{signup.formErrors.form}}</span>
+          <label class="popup-input-label">
+            <input type="checkbox" name="rulesAgreement" required ng-model="signup.formData.rulesAgreement" class="item-checkbox"><span class="item-label">Я согласен с правилами</span>
+          </label><a href="#" target="_blank" class="popup-link">использования сайта</a>
+          <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ" class="btn mod-popup">
+        </form>
+      </div>
+      <div ng-if="signup.formData.role == 'clinic_admin'">
+        <form name="registrationForm" ng-submit="signup.validate(registrationForm)" novalidate class="signup-form">
+          <div class="form-input-holder">
+            <input type="text" name="fullName" placeholder="Название клиники" ng-model="signup.formData.fullName" class="popup-input">
+            <div ng-if="signup.formErrors.fullName" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.fullName}}</span></div>
+          </div>
+          <div class="form-input-holder">
+            <input type="password" name="password" placeholder="Пароль*" ng-model="signup.formData.password" class="popup-input">
+            <div ng-if="signup.formErrors.password" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.password}}</span></div>
+          </div>
+          <div class="form-input-holder">
+            <input type="password" name="passwordRepeat" placeholder="Повторите пароль*" ng-model="signup.formData.passwordRepeat" class="popup-input">
+            <div ng-if="signup.formErrors.passwordRepeat" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.passwordRepeat}}</span></div>
+          </div>
+          <div class="form-input-holder">
+            <input type="text" name="phone" angular-mask="+00(000)000-00-00" placeholder="Телефон*" ng-model="signup.formData.phone" class="popup-input">
+            <div ng-if="signup.formErrors.phone" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.phone}}</span></div>
+          </div>
+          <div class="form-input-holder">
+            <input type="email" name="email" placeholder="E-mail" ng-model="signup.formData.email" class="popup-input">
+            <div ng-if="signup.formErrors.email" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.email}}</span></div>
+          </div><span ng-if="signup.formErrors.form" class="form-error">{{signup.formErrors.form}}</span>
+          <label class="popup-input-label">
+            <input type="checkbox" name="rulesAgreement" required ng-model="signup.formData.rulesAgreement" class="item-checkbox"><span class="item-label">Я согласен с правилами</span>
+          </label><a href="#" target="_blank" class="popup-link">использования сайта</a>
+          <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ" class="btn mod-popup">
+        </form>
+      </div>
+      <div ng-if="signup.formData.role == 'doctor'">
+        <form name="registrationForm" ng-submit="signup.validate(registrationForm)" novalidate class="signup-form">
+          <div class="form-input-holder">
+            <input type="text" name="fullName" placeholder="Имя и фамилия" ng-model="signup.formData.fullName" class="popup-input">
+            <div ng-if="signup.formErrors.fullName" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.fullName}}</span></div>
+          </div>
+          <div class="form-input-holder">
+            <input type="password" name="password" placeholder="Пароль*" ng-model="signup.formData.password" class="popup-input">
+            <div ng-if="signup.formErrors.password" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.password}}</span></div>
+          </div>
+          <div class="form-input-holder">
+            <input type="password" name="passwordRepeat" placeholder="Повторите пароль*" ng-model="signup.formData.passwordRepeat" class="popup-input">
+            <div ng-if="signup.formErrors.passwordRepeat" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.passwordRepeat}}</span></div>
+          </div>
+          <div class="form-input-holder">
+            <input type="text" name="phone" angular-mask="+00(000)000-00-00" placeholder="Телефон*" ng-model="signup.formData.phone" class="popup-input">
+            <div ng-if="signup.formErrors.phone" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.phone}}</span></div>
+          </div>
+          <div class="form-input-holder">
+            <input type="email" name="email" placeholder="E-mail" ng-model="signup.formData.email" class="popup-input">
+            <div ng-if="signup.formErrors.email" class="form-input-error-holder"><span class="form-input-error">{{signup.formErrors.email}}</span></div>
+          </div><span ng-if="signup.formErrors.form" class="form-error">{{signup.formErrors.form}}</span>
+          <label class="popup-input-label">
+            <input type="checkbox" name="rulesAgreement" required ng-model="signup.formData.rulesAgreement" class="item-checkbox"><span class="item-label">Я согласен с правилами</span>
+          </label><a href="#" target="_blank" class="popup-link">использования сайта</a>
+          <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ" class="btn mod-popup">
+        </form>
+      </div>
+    </div>
+    <div class="popup-footer"><span class="popup-footer-text">Уже зарегистрированы</span><a ng-click="popup.navigate('login')" class="popup-link">Войти</a></div>
+  </div>
+</div>
+<!--END POPUP SIGNUP-->

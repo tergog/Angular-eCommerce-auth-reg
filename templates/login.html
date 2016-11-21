@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--START POPUP LOGIN-->
+<div ng-controller="LoginTemplateController as login" class="popup-content-block">
+  <div class="popup-form">
+    <div class="popup-main">
+      <form name="loginForm" ng-submit="login.userLogin()" novalidate class="registration-form">
+        <div class="form-input-holder">
+          <input type="text" name="username" placeholder="Введите e-mail или номер телефона" ng-model="login.formData.username" class="popup-input">
+          <div ng-if="login.formErrors.username" class="form-input-error-holder"><span class="form-input-error">{{login.formErrors.username}}</span></div>
+        </div>
+        <div class="form-input-holder">
+          <input type="password" name="password" placeholder="Пароль" ng-model="login.formData.password" class="popup-input">
+          <div ng-if="login.formErrors.password" class="form-input-error-holder"><span class="form-input-error">{{login.formErrors.password}}</span></div>
+        </div><span ng-if="login.formErrors.form" class="form-error">{{login.formErrors.form}}</span>
+        <div class="popup-pass-link-wrap"><a ng-click="popup.navigate('confirmPhone')" class="popup-pass-link">Забыли пароль?</a></div>
+        <div class="login-button-wrap">
+          <button class="btn mod-popup">ВОЙТИ</button>
+        </div>
+      </form>
+      <!--div.social-login-wrap
+      span.popup-text Войти через соц. сети:
+      div.social-login
+          a(href="#" target="_blank").social-item.mod-fb
+          a(href="#" target="_blank").social-item.mod-vk
+      -->
+    </div>
+    <div class="popup-footer"><span class="popup-footer-text">Впервые на сайте?</span><a ng-click="popup.navigate('signup')" class="popup-link">Зарегистрироваться</a></div>
+  </div>
+</div>
+<!--END POPUP LOGIN-->

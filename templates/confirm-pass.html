@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--START POPUP CONFIRM PASS-->
+<div ng-controller="ConfirmPassTemplateController as confirmPass" class="popup-content-block">
+  <div class="popup-form">
+    <div class="popup-main without-footer">
+      <form name="registration" ng-submit="confirmPass.sendPass()" novalidate class="registration-form">
+        <div class="popup-confirm-message"><span>На ваш телефон будет отправлен код подтверждения, для сохранения пароля.</span></div>
+        <div class="form-input-holder">
+          <input type="password" name="pass" placeholder="Введите пароль" ng-model="confirmPass.formData.password" class="popup-input">
+          <div ng-if="confirmPass.formErrors.pass" class="form-input-error-holder"><span class="form-input-error">{{confirmPass.formErrors.password}}</span></div>
+        </div>
+        <div class="form-input-holder">
+          <input type="password" name="pass" placeholder="Подтвердите пароль" ng-model="confirmPass.formData.passwordRepeat" class="popup-input">
+          <div ng-if="confirmPass.formErrors.passphrase" class="form-input-error-holder"><span class="form-input-error">{{confirmPass.formErrors.passwordRepeat}}</span></div>
+        </div><span ng-if="confirmPass.formErrors.form" class="form-error">{{confirmPass.formErrors.form}}</span>
+        <button class="btn mod-popup">СОХРАНИТЬ</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!--END POPUP CONFIRM PASS-->

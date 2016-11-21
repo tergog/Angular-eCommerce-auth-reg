@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--START POPUP RESET-CONFIRM-->
+<div ng-controller="ResetConfirmTemplateController as resetConfirm" class="popup-content-block">
+  <div class="popup-form">
+    <div class="popup-main">
+      <div class="popup-confirm-user-data"><span class="popup-user-data">{{resetConfirm.fullName}}</span><span class="popup-user-data">{{resetConfirm.phone}}</span></div>
+      <div class="popup-divider"></div>
+      <div class="popup-confirm-message"><span>На ваш мобильный телефон отправлен код подтверждения, введите его ниже, чтобы восстановить пароль.</span></div>
+      <form name="resetConfirmForm" ng-submit="resetConfirm.keyConfirm()" novalidate class="registration-form">
+        <div class="form-input-holder">
+          <input type="text" placeholder="Укажите код" name="confirmCode" ng-model="resetConfirm.formData.confirmCode" class="popup-input">
+          <div ng-if="resetConfirm.formErrors.confirmCode" class="form-input-error-holder"><span class="form-input-error">{{resetConfirm.formErrors.confirmCode}}</span></div>
+        </div><span ng-if="resetConfirm.formErrors.form" class="form-error">{{resetConfirm.formErrors.form}}</span>
+        <button class="btn mod-popup">Подтвердить</button>
+      </form>
+    </div>
+    <div class="popup-footer"><span class="popup-footer-text">Не приходит смс?</span><a ng-click="resetConfirm.resendConfirm()" class="popup-link">Отправить повторно</a></div>
+  </div>
+</div>
+<!--END POPUP RESET-CONFIRM-->
